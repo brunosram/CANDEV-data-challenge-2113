@@ -58,5 +58,10 @@ bow_corpus = [dictionary.doc2bow(doc) for doc in processed_docs]
 
 lda_model = gensim.models.LdaMulticore(bow_corpus, num_topics=10, id2word=dictionary, passes=2, workers=3)
 
-print("finished")
 
+from gensim.test.utils import datapath
+temp_file = datapath("model")
+lda_model.save(temp_file)
+
+
+print("finished")
