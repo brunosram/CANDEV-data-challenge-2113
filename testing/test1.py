@@ -83,12 +83,10 @@ bow_corpus = [dictionary.doc2bow(doc) for doc in processed_docs]
 
 lda_model = gensim.models.LdaMulticore(bow_corpus, num_topics=10, id2word=dictionary, passes=2, workers=3)
 
-
 from gensim.test.utils import datapath
 
 lda_model.save("word2vec.model")
 
-lda_model = gensim.models.LdaMulticore(bow_corpus, num_topics=10, id2word=dictionary, passes=2, workers=3)
 lda_model = gensim.models.ldamodel.LdaModel.load("word2vec.model")
 
 for idx, topic in lda_model.print_topics(-1):
