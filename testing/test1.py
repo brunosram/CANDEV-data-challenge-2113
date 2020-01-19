@@ -17,7 +17,7 @@ import nltk
 # =============================================================================
 # nltk.download('wordnet')
 # =============================================================================
-data = pd.read_csv('D:/Candev/g.csv', error_bad_lines=False, encoding = "ISO-8859-1")
+data = pd.read_csv('g.csv', error_bad_lines=False, encoding = "ISO-8859-1")
 data_text = data[['title']]
 documents = data_text
 stemmer = SnowballStemmer("english")
