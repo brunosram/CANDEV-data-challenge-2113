@@ -60,8 +60,9 @@ lda_model = gensim.models.LdaMulticore(bow_corpus, num_topics=10, id2word=dictio
 
 
 from gensim.test.utils import datapath
-temp_file = datapath("model")
-lda_model.save(temp_file)
+# temp_file = datapath("model")
+# lda_model.save(temp_file)
+lda_model.save("word2vec.model")
 
 
 print("finished")
