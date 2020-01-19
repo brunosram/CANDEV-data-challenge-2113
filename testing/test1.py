@@ -41,7 +41,7 @@ documents.to_csv("clean.csv")
 
 documents['combine'] = documents[['title','simple description','description for Gccampus']].apply(lambda x : '{} {} {}'.format(x[0],x[1],x[2]), axis=1)
 
-documents = documents['combine']
+# documents = documents['combine']
 
 documents.to_csv("combine.csv")
 
@@ -66,9 +66,9 @@ for word in doc_sample.split(' '):
 print(words)
 print('\ntokenized and lemmatized document: ')
 print(preprocess(doc_sample))
-processed_docs = documents.map(preprocess)
-print(documents.shape[0])
-processed_docs = processed_docs[:documents.shape[0]]
+processed_docs = documents['combine'].map(preprocess)
+print(documents['combine'].shape[0])
+processed_docs = processed_docs[:documents['combine'].shape[0]]
 
 # Bag of words on the dataset
 dictionary = gensim.corpora.Dictionary(processed_docs)
